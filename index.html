@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Emojis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <a href="#" class="logo" id="reset-logo">
+            Discord Emojis
+            <img src="./cursor/cursor.png" alt="Cursor Icon" class="cursor-icon">
+        </a>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+        <h1>Encuentra emojis para tu servidor de Discord</h1>
+        
+        <!-- Botón de Discord -->
+        <a href="https://discord.gg/CW9g4MJxtK" target="_blank" class="discord-button">
+            Ingresa a nuestro Discord
+        </a>
+
+        <!-- Barra de búsqueda -->
+        <input type="text" id="search-bar" placeholder="Buscar emojis..." />
+
+        <!-- Etiquetas sugeridas -->
+        <div class="tags-container">
+            <span class="tag" data-filter="gif">gif</span>
+            <span class="tag" data-filter="discord">discord</span>
+            <span class="tag" data-filter="emoji">emoji</span>
+            <span class="tag" data-filter="anime">anime</span>
+            <span class="tag" data-filter="meme">meme</span>
+            <span class="tag" data-filter="cat">cat</span>
+            <span class="tag" data-filter="dancing">dancing</span>
+            <span class="tag" data-filter="minecraft">minecraft</span>
+            <span class="tag" data-filter="pepe">pepe</span>
+            <span class="tag" data-filter="reaction">reaction</span>
+            <span class="tag" data-filter="among">among</span>
+        </div>
+
+        <!-- Contenedor de emojis -->
+        <div class="emoji-header">
+            <p>Elige uno de acá o busca cual deseas</p>
+        </div>
+        <div class="emoji-container" id="emoji-container"></div>
+    </main>
+
+    <!-- Barra de emojis seleccionados -->
+    <footer class="selection-bar" id="selection-bar">
+        <div class="selection-info">
+            <p id="selection-count">0 EMOJIS</p>
+        </div>
+        <div class="selected-emojis" id="selected-emojis"></div>
+        <button id="download-button" class="download-button">Descargar</button>
+    </footer>
+
+    <!-- Panel de Descarga -->
+    <div class="download-panel" id="download-panel">
+        <div class="download-header">
+            <h3>Download</h3>
+            <button id="close-panel" class="close-panel">✕</button>
+        </div>
+        <div class="download-buttons">
+            <button id="download-all" class="download-all">Download All</button>
+            <button id="clear-all" class="clear-all">Clear All</button>
+        </div>
+        <ul class="download-list" id="download-list"></ul>
+    </div>
+
+    <!-- JSZip para crear el archivo .rar -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip/dist/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

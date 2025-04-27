@@ -1,0 +1,290 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #202225;
+    color: #ffffff;
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #8B4513; /* Marrón sólido reemplazando el azul */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cursor-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Contenido principal */
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    background-color: #2f3136;
+    color: #ffffff;
+}
+
+/* Contenedor de etiquetas (tags) */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background-color: #2f3136;
+    color: #b9bbbe;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tag:hover {
+    background-color: #8B4513; /* Marrón sólido reemplazando el azul */
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Contenedor de emojis */
+.emoji-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.emoji {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f3136;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.3s;
+    cursor: pointer;
+}
+
+.emoji.selected {
+    background-color: #8B4513; /* Marrón sólido reemplazando el azul */
+}
+
+/* Desenfoque al abrir el panel */
+body.blur #main-content, body.blur .selection-bar {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+/* Barra de emojis seleccionados */
+.selection-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2f3136;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #8B4513; /* Marrón sólido reemplazando el azul */
+    overflow: hidden; /* Evita que el contenido se salga */
+    box-sizing: border-box;
+}
+
+/* Contenedor de emojis seleccionados */
+.selected-emojis {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Scroll horizontal para emojis */
+    max-width: calc(100% - 150px); /* Espacio dinámico para no afectar el botón y el contador */
+    padding-bottom: 5px;
+}
+
+.selected-emojis img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Contenedor del contador de emojis */
+.selection-info {
+    color: #ffffff;
+    font-size: 14px;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+/* Estilo para el botón de descargar */
+.download-button {
+    background-color: #8B4513; /* Marrón sólido reemplazando el azul */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto del botón se divida */
+}
+
+.download-button:hover {
+    background-color: #5C3317; /* Un marrón más oscuro para el hover */
+}
+
+/* Panel de Descarga */
+.download-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #2f3136;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    max-height: 70vh;
+    overflow-y: auto;
+    border: 2px solid #8B4513; /* Borde marrón sólido */
+}
+
+.download-panel.open {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Botones del Panel */
+.download-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.download-header h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.close-panel {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    border-radius: 5px;
+}
+
+.close-panel:hover {
+    color: #ff5e57; /* Rojo para el hover de la X */
+}
+
+.download-buttons button {
+    background-color: #8B4513; /* Marrón sólido reemplazando el azul */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-buttons button:hover {
+    background-color: #5C3317; /* Un marrón más oscuro para el hover */
+}
+
+.download-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.download-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #404040;
+}
+
+.download-list li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.download-list li button {
+    background-color: #8B4513; /* Marrón sólido reemplazando el azul */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-list li button:hover {
+    background-color: #5C3317; /* Un marrón más oscuro para el hover */
+}   
+
+/* Botón de Discord */
+.discord-button {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #404eed;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.discord-button:hover {
+    background-color: #5865f2;
+    transform: scale(1.1);
+}
